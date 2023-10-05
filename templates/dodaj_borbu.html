@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj Borbu</title>
+</head>
+<body>
+    <!-- Dodajte ovo u vaše HTML datoteke gdje želite primijeniti stilove -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <h1>Dodaj Borbu</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+    <form method="POST">
+        <label for="datum">Datum:</label>
+        <input type="date" id="datum" name="datum" required><br>
+
+        <label for="runde">Runde:</label>
+        <input type="number" id="runde" name="runde" required><br>
+
+        <label for="zavrseno_na_bodove">Završeno na bodove:</label>
+        <input type="checkbox" id="zavrseno_na_bodove" name="zavrseno_na_bodove"><br>
+
+        <label for="nokaut">Nokaut:</label>
+        <input type="checkbox" id="nokaut" name="nokaut"><br>
+
+        <label for="prekid">Prekid:</label>
+        <input type="checkbox" id="prekid" name="prekid"><br>
+
+        <label for="pobjednik_id">Pobjednik:</label>
+        <select id="pobjednik_id" name="pobjednik_id">
+            {% for boksač in bokseri %}
+                <option value="{{ boksač.id }}">{{ boksač.ime }} {{ boksač.prezime }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="gubitnik_id">Gubitnik:</label>
+        <select id="gubitnik_id" name="gubitnik_id">
+            {% for boksač in bokseri %}
+                <option value="{{ boksač.id }}">{{ boksač.ime }} {{ boksač.prezime }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Dodaj Borbu">
+    </form>
+
+    <a href="{{ url_for('popis_borbi') }}">Povratak na Popis Borbi</a>
+</body>
+</html>

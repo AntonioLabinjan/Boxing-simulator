@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uredi Boksača</title>
+</head>
+<body>
+    <h1>Uredi Boksača</h1>
+    <form method="POST" action="/uredi_boksera/{{ boksač.id }}">
+        <label for="ime">Ime:</label>
+        <input type="text" name="ime" value="{{ boksač.ime }}" required><br>
+        <label for="prezime">Prezime:</label>
+        <input type="text" name="prezime" value="{{ boksač.prezime }}" required><br>
+        <label for="kategorija">Kategorija:</label>
+        <input type="text" name="kategorija" value="{{ boksač.kategorija }}"><br>
+        <label for="drzava">Država:</label>
+        <input type="text" name="drzava" value="{{ boksač.drzava }}"><br>
+        <label for="stil">Stil:</label>
+        <input type="text" name="stil" value="{{ boksač.stil }}"><br>
+        <input type="submit" value="Spremi promjene">
+    </form>
+    <br>
+    <a href="/bokseri">Povratak na popis boksača</a>
+<!-- Dodajte ovo u vaše HTML datoteke gdje želite primijeniti stilove -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</body>
+</html>

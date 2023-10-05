@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popis Borbi</title>
+</head>
+<body>
+    <h1>Popis Borbi</h1>
+
+    <table>
+        <tr>
+            <th>Datum</th>
+            <th>Runde</th>
+            <th>Završeno na Bodove</th>
+            <th>Nokaut</th>
+            <th>Prekid</th>
+            <th>Pobjednik</th>
+            <th>Gubitnik</th>
+            <th>Opcije</th>
+        </tr>
+        {% for borba in borbe %}
+            <tr>
+                <td>{{ borba.datum }}</td>
+                <td>{{ borba.runde }}</td>
+                <td>{{ "Da" if borba.zavrseno_na_bodove else "Ne" }}</td>
+                <td>{{ "Da" if borba.nokaut else "Ne" }}</td>
+                <td>{{ "Da" if borba.prekid else "Ne" }}</td>
+                <td>{{ borba.pobjednik.ime }} {{ borba.pobjednik.prezime }}</td>
+                <td>{{ borba.gubitnik.ime }} {{ borba.gubitnik.prezime }}</td>
+                <td>
+                    <a href="{{ url_for('izbrisi_borbu', id=borba.id) }}">Izbriši</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('dodaj_borbu') }}">Dodaj Novu Borbu</a>
+    <a href="/">Povratak</a>
+    <!-- Dodajte ovo u vaše HTML datoteke gdje želite primijeniti stilove -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</body>
+</html>

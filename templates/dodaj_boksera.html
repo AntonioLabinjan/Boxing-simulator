@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj Boksača</title>
+</head>
+<body>
+    <h1>Dodaj Boksača</h1>
+    <form method="POST" action="/dodaj_boksera">
+        <label for="ime">Ime:</label>
+        <input type="text" name="ime" required><br>
+        <label for="prezime">Prezime:</label>
+        <input type="text" name="prezime" required><br>
+        <label for="kategorija">Kategorija:</label>
+        <input type="text" name="kategorija"><br>
+        <label for="drzava">Država:</label>
+        <input type="text" name="drzava"><br>
+        <label for="stil">Stil:</label>
+        <input type="text" name="stil"><br>
+        <input type="submit" value="Dodaj">
+    </form>
+    <br>
+    <a href="/bokseri">Povratak na popis boksača</a>
+    <!-- Dodajte ovo u vaše HTML datoteke gdje želite primijeniti stilove -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</body>
+</html>

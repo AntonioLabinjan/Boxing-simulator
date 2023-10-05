@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Početna Stranica</title>
+</head>
+<body>
+    <center><h1>Dobrodošli u Boxing simulator!</h1></center>
+
+    <h2>Odaberi akciju:</h2>
+    <a href="{{ url_for('dodaj_boksera') }}">Dodaj Boksača</a><br>
+    <a href="{{ url_for('dodaj_borbu') }}">Dodaj Borbu</a><br>
+    <a href="{{ url_for('popis_boksera') }}">Popis Boksača</a><br>
+    <a href="{{ url_for('popis_borbi') }}">Popis Borbi</a>
+</body>
+<!-- Dodajte ovo u vaše HTML datoteke gdje želite primijeniti stilove -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</html>

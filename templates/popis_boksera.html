@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popis Boksača</title>
+</head>
+<body>
+    <h1>Popis Boksača</h1>
+    <table border="1">
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Kategorija</th>
+            <th>Država</th>
+            <th>Stil</th>
+            <th>Akcije</th>
+        </tr>
+        {% for boksač in bokseri %}
+            <tr>
+                <td>{{ boksač.ime }}</td>
+                <td>{{ boksač.prezime }}</td>
+                <td>{{ boksač.kategorija }}</td>
+                <td>{{ boksač.drzava }}</td>
+                <td>{{ boksač.stil }}</td>
+                <td>
+                    <a href="/uredi_boksera/{{ boksač.id }}">Uredi</a>
+                    <a href="/izbrisi_boksera/{{ boksač.id }}" onclick="return confirm('Jeste li sigurni da želite izbrisati ovog boksača?')">Izbriši</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/dodaj_boksera">Dodaj novog boksača</a>
+    <a href="/dodaj_borbu">Dodaj novu borbu</a>
+    <a href="/">Povratak</a>
+    <!-- Dodajte ovo u vaše HTML datoteke gdje želite primijeniti stilove -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</body>
+</html>
